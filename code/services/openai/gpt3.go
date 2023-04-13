@@ -2,9 +2,6 @@ package openai
 
 import (
 	"errors"
-	"strings"
-
-	"github.com/pandodao/tokenizer-go"
 )
 
 const (
@@ -43,11 +40,6 @@ type ChatGPTRequestBody struct {
 	TopP             int        `json:"top_p"`
 	FrequencyPenalty int        `json:"frequency_penalty"`
 	PresencePenalty  int        `json:"presence_penalty"`
-}
-
-func (msg *Messages) CalculateTokenLength() int {
-	text := strings.TrimSpace(msg.Content)
-	return tokenizer.MustCalToken(text)
 }
 
 func (gpt *ChatGPT) Completions(msg []Messages) (resp Messages,

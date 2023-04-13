@@ -1,6 +1,7 @@
 package services
 
 import (
+	"encoding/json"
 	"start-feishubot/services/openai"
 	"time"
 
@@ -145,7 +146,9 @@ func GetSessionCache() SessionServiceCacheInterface {
 func getStrPoolTotalLength(strPool []openai.Messages) int {
 	var total int
 	for _, v := range strPool {
-		total += v.CalculateTokenLength()
+		bytes, _ := json.Marshal(v)
+		total += len(string(bytes))
+
 	}
 	return total
 }
