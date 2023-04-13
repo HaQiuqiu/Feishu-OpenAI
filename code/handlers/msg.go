@@ -592,7 +592,7 @@ func sendMsg(ctx context.Context, msg string, chatId *string) error {
 func sendClearCacheCheckCard(ctx context.Context,
 	sessionId *string, msgId *string) {
 	newCard, _ := newSendCard(
-		withHeader("🆑 机器人提醒", larkcard.TemplateBlue),
+		withHeader("🦉 秒测AI提醒", larkcard.TemplateBlue),
 		withMainMd("您确定要清除对话上下文吗？"),
 		withNote("请注意，这将开始一个全新的对话，您将无法利用之前话题的历史信息"),
 		withClearDoubleCheckBtn(sessionId))
@@ -620,7 +620,7 @@ func sendPicCreateInstructionCard(ctx context.Context,
 func sendPicModeCheckCard(ctx context.Context,
 	sessionId *string, msgId *string) {
 	newCard, _ := newSendCard(
-		withHeader("🖼️ 机器人提醒", larkcard.TemplateBlue),
+		withHeader("🦉 秒测AI提醒", larkcard.TemplateBlue),
 		withMainMd("收到图片，是否进入图片创作模式？"),
 		withNote("请注意，这将开始一个全新的对话，您将无法利用之前话题的历史信息"),
 		withPicModeDoubleCheckBtn(sessionId))
@@ -630,7 +630,7 @@ func sendPicModeCheckCard(ctx context.Context,
 func sendNewTopicCard(ctx context.Context,
 	sessionId *string, msgId *string, content string) {
 	newCard, _ := newSendCard(
-		withHeader("👻️ 已开启新的话题", larkcard.TemplateBlue),
+		withHeader("🦉 秒测AI已开启新的话题", larkcard.TemplateBlue),
 		withMainText(content),
 		withNote("提醒：点击对话框参与回复，可保持话题连贯"))
 	replyCard(ctx, msgId, newCard)
@@ -640,7 +640,7 @@ func sendHelpCard(ctx context.Context,
 	sessionId *string, msgId *string) {
 	newCard, _ := newSendCard(
 		withHeader("🎒需要帮助吗？", larkcard.TemplateBlue),
-		withMainMd("**我是小飞机，一款基于chatGpt技术的智能聊天机器人！**"),
+		withMainMd("**🦉 我是秒测AI，基于chatGpt为秒测同学提高工作效率的小助手！**"),
 		withSplitLine(),
 		withMdAndExtraBtn(
 			"** 🆑 清除话题上下文**\n文本回复 *清除* 或 */clear*",
